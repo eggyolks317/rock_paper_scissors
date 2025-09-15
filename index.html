@@ -23,16 +23,18 @@
             return;
         }
         function getHumanChoice () {
-            return prompt('Enter your choice', 'enter here!')
+            return prompt('Enter your choice')
         
         }
         function randomNum (max) {
             return Math.floor(Math.random() * max);
         }
         function playRound (computerChoice = getComputerChoice(), humanChoice) {
+            //outputs the computer and human choice
             console.log('Computer Choice: ' + computerChoice);
             console.log ('Human Choice: ' + humanChoice);
-            humanChoice = humanChoice.toLowerCase();
+            humanChoice = humanChoice.toLowerCase(); //making human choice not case-sensitive
+            //game logic
             if (computerChoice == 'rock' && humanChoice == 'scissor') {
                 console.log(loseMessage(computerChoice, humanChoice));
             } else if (computerChoice == 'scissor' && humanChoice == 'paper') {
@@ -54,18 +56,22 @@
             } 
         }
         function loseMessage(computerChoice = getComputerChoice(), humanChoice) {
+            //returns a lose message and plus 1 to computer score
             computerScore++;
             return 'You lose, ' + computerChoice + ' beats ' +humanChoice;
         }
         function winMessage(computerChoice = getComputerChoice(), humanChoice) {
+            //returns a win message and plus 1 to human score
             humanScore++;
             return 'You win, ' + humanChoice + ' beats ' +computerChoice;
         }
         function drawMessage(computerChoice = getComputerChoice(), humanChoice) {
+            //returns a draw message
             return 'Draw!';
         }
         function playGame (){
             for (let i = 0; i<5 ; i ++) {
+                //output which round
                 console.log('Round ' + (i+1));
                 playRound(getComputerChoice(), getHumanChoice());
             }
