@@ -1,0 +1,35 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+#display {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 0px;
+}
+#buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.buttons {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: lightblue;
+
+}
+#text {
+    display: flex;
+    justify-content: space-around;
+}
+.textContainer {
+    justify-content:space-around;
+    align-items: center;
+    display: flex;
+}
