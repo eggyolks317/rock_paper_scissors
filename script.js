@@ -24,17 +24,20 @@ let humanChoice;
             //returns a lose message and plus 1 to computer score
             computerScore.textContent++;
             result.textContent = 'You lose, ' + computerChoice + ' beats ' +humanChoice;
+            result.style.color = 'red';
             return result.textContent;
         }
         function winMessage(computerChoice = getComputerChoice(), humanChoice) {
             //returns a win message and plus 1 to human score
             humanScore.textContent++;
             result.textContent =  'You win, ' + humanChoice + ' beats ' +computerChoice;
+            result.style.color = 'green';
             return result.textContent;
         }
         function drawMessage(computerChoice = getComputerChoice(), humanChoice) {
             //returns a draw message
             result.textContent = 'Draw!';
+            result.style.color = 'black';
             return result.textContent;
         }
 
@@ -44,7 +47,7 @@ let humanChoice;
             console.log('Computer Choice: ' + computerChoice);
             console.log ('Human Choice: ' + humanChoice); //making human choice not case-sensitive
             //game logic
-            if (computerChoice == 'rock' && humanChoice == 'scissor') {
+            if ((computerChoice == 'rock' && humanChoice == 'scissor')) {
                 console.log(loseMessage(computerChoice, humanChoice));
             } 
             else if (computerChoice == 'scissor' && humanChoice == 'paper') {
@@ -52,16 +55,7 @@ let humanChoice;
             } 
             else if (computerChoice == 'paper' && humanChoice == 'rock') {
                 console.log(loseMessage(computerChoice, humanChoice));
-            } 
-            else if (computerChoice == 'rock' && humanChoice == 'rock') {
-                console.log(drawMessage(computerChoice, humanChoice));
-            } 
-            else if (computerChoice == 'scissor' && humanChoice == 'scissor') {
-                console.log(drawMessage(computerChoice, humanChoice));
-            } 
-            else if (computerChoice == 'paper' && humanChoice == 'paper') {
-                console.log(drawMessage(computerChoice, humanChoice));
-            } 
+            }
             else if (computerChoice == 'scissor' && humanChoice == 'rock') {
                 console.log(winMessage(computerChoice, humanChoice));
             } 
@@ -70,7 +64,10 @@ let humanChoice;
             } 
             else if (computerChoice == 'rock' && humanChoice == 'paper') {
                 console.log(winMessage(computerChoice, humanChoice));
-            } 
+            }  
+            else if (computerChoice === humanChoice) {
+                console.log(drawMessage(computerChoice, humanChoice));
+            }
             if (computerScore.textContent == 5) {
                 result.textContent = 'Game ENDS! COMPUTER WINS HAHAHAHAHAHA';
                 return;
@@ -78,20 +75,6 @@ let humanChoice;
             else if (humanScore.textContent == 5) {
                 result.textContent = 'You win... BYE';
                 return;
-            }
-        }
-        function playGame (){
-            for (let i = 0; i<5 ; i ++) {
-                //output which round
-                console.log('Round ' + (i+1));
-                playRound(getComputerChoice(), humanChoice);
-            }
-            if (humanScore > computerScore) {
-                return 'Human Wins';
-            } else if (computerScore > humanScore) {
-                return 'Computer Wins';
-            } else {
-                return 'Draw';
             }
         }
         rock.addEventListener('click', () => {playRound(getComputerChoice(), 'rock')})

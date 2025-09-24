@@ -1,6 +1,7 @@
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    font-weight: bold;
 }
 button {
     font-family: 'Courier New', Courier, monospace;
@@ -20,8 +21,11 @@ button {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border-style: none;
-    background-color: lightblue;
+    border-style: dotted;
+    border-width: 5px;
+    color: lightblue;
+    border-color: lightblue;
+    background-color: transparent;
     font-weight: bolder;
 
 }
@@ -33,4 +37,14 @@ button {
     justify-content:space-around;
     align-items: center;
     display: flex;
+    font-weight: bolder;
+}
+#scores {
+    font-size: x-large;
+}
+#computer {
+    color: pink;
+}
+#human {
+    color: green;
 }
